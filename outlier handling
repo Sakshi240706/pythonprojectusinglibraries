@@ -1,0 +1,11 @@
+try: import pandas as pd  
+except ImportError: print("Missing pandas! Install using: pip install pandas")
+
+
+try: df = pd.read_csv("data.csv")  
+except FileNotFoundError: print("File Not Found! Check the file path.")
+
+df.fillna(0, inplace=True) if df.isnull().values.any() else print("No Missing Values Found")
+
+try: plt.plot([1,2,3])  
+except Exception as e: print(f"An error occurred: {e}")
